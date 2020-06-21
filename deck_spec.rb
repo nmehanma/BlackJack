@@ -29,7 +29,7 @@ RSpec.describe Deck do
   end
 
   it "responds to replace_with" do
-    expect(@deck).to respond_to(:repace_with)
+    expect(@deck).to respond_to(:replace_with)
   end
 
   it "pops off the stack when a card is dealt" do 
@@ -45,7 +45,14 @@ RSpec.describe Deck do
   end
 
   it "gets a new deck with replace_with" do
-    
+    deck_of_cards = []
+    deck_of_cards.push(Card.new('Clubs', '2'))
+    deck_of_cards.push(Card.new('Clubs', '3'))
+    new_deck = @deck.dup
+    new_deck.replace_with(deck_of_cards)
+    expect(@deck.deck).not_to eq(new_deck.deck)
   end
+
+
 
 end
