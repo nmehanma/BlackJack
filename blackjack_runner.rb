@@ -36,8 +36,11 @@ while game.player_hand.get_value < 21 do
     puts "Player's hand: " + game.player_hand.to_s
     puts "Dealer's hand: " + game.dealer_hand.to_s
     puts
+    break
   end
 end
+
+puts game.set_results
 
 
 
