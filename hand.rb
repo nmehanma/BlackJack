@@ -29,10 +29,10 @@ class Hand
   end
 
   def get_value
-    # card_ranks = []
-    # @dealt_cards.each{ |card| card_ranks.push(card.rank) }
+    #card_ranks = []
+    #@dealt_cards.each{ |card| card_ranks.push(card.rank) }
 
-    # card_ranks = dealt_cards.map { |card| card.rank }
+    #card_ranks = dealt_cards.map { |card| card.rank }
 
     card_ranks = dealt_cards.collect { |card| card.rank}
 
@@ -51,21 +51,21 @@ class Hand
         value += 10 if value + 10 <=21
       end
       value
-  end
+    end
 
-  def to_s
-    #Start off with Empty String
-    report = ""
+    def to_s
+      #Start off with Empty String
+      report = ""
 
-    dealt_cards.each { |card| report += card.to_s + ", " if card.show }
+      dealt_cards.each { |card| report += card.to_s + ", " if card.show }
 
-    if dealt_cards.first.show == false
-      first_value = VALUES[dealt_cards.first.rank.to_sym]
-      report + "Total value: " + (get_value - first_value).to_s
+      if dealt_cards.first.show == false
+        first_value = VALUES[dealt_cards.first.rank.to_sym]
+        report + "Total value: " + (get_value - first_value).to_s
 
-    else
-      report + "Total value: " + get_value.to_s
+      else
+        report + "Total value: " + get_value.to_s
 
+      end
     end
   end
-end
